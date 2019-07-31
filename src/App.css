@@ -1,33 +1,67 @@
-.App {
-  text-align: center;
+body{
+  background-color:lightgray;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+}
+.cell{
+  background-color:whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+.leftArrow{
+  margin-left: 7px;
+  
+}
+.rightArrow{
+  margin-right: 7px;
+}
+.content{
+  margin: 14px 12px 14px 12px;
+}
+
+/* .column , .cell{
+  border: solid black 1px;
+  
+} */
+
+.column , .add_row {
+  width: 25%;
+  margin: 10px 25px 0px 25px;
+}
+
+.header{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 30px;
+  margin-bottom: 2px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.add_row{
+  display: flex;
+}
+.addRow{
+    margin-left: 12px;
+}
+.Winnie{
+  background-color: #8E6E95;
+}
+.Bob{
+  background-color: #39A59C;
+}
+.Thomas{
+  background-color: #344759;
+}
+.George{
+  background-color: #E8741E;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hide{
+  visibility: hidden;
 }
