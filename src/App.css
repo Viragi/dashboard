@@ -9,7 +9,7 @@ body{
 .cell{
   background-color:whitesmoke;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: baseline;
   margin-bottom: 2px;
 }
@@ -21,6 +21,7 @@ body{
   margin-right: 7px;
 }
 .content{
+  width: 100%;
   margin: 14px 12px 14px 12px;
 }
 
@@ -29,9 +30,13 @@ body{
   
 } */
 
-.column , .add_row {
+.column{
   width: 25%;
-  margin: 10px 25px 0px 25px;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+.column:last-child{
+  margin-right: 25px;
 }
 
 .header{
@@ -45,6 +50,7 @@ body{
 
 .add_row{
   display: flex;
+  margin-top: 10px;
 }
 .addRow{
     margin-left: 12px;

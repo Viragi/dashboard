@@ -21,8 +21,27 @@ class Column extends React.Component{
         }
     }
     handleClick =(col, row,isLeft)=>{
-        console.log("HERE",col,row, isLeft);
+        let data= [...this.state.tasks];
+        let reqRowData = data[col].task[row];
+        data[col].task= data[col].task.filter((item,i)=>{
+                            return i!=row;
+                        });
+        let newCol = isLeft ? col-1 : col+1;
+        data[newCol].task = [...data[newCol].task, reqRowData];
+        this.setState({
+            ...this.state,
+            task:data
+        }) 
 
+    }
+    handleAddRow =(col)=>{
+        let newRow = window.prompt();
+        let data= [...this.state.tasks];
+        data[col].task = [...data[col].task,newRow];
+        this.setState({...this.state, 
+                      tasks: data})
+
+       
     }
     render(){
         let elem = this.state.tasks.map((item,colI)=>{
@@ -32,18 +51,21 @@ class Column extends React.Component{
                     <div className="cells">
                         {item.task.map((tsk,i)=>{
                             return(
-                                <Cell data={tsk} colIndex = {colI} handleClick={(col,row,isLeft)=>this.handleClick(colI,i)}/>
-                            )
+                                <Cell data={tsk} colIndex = {colI} moveRow={(isLeft)=>this.handleClick(colI,i,isLeft)}/>
+                               )
                         })}
-
-
                     </div>
+                    <div className="add_row" onClick ={()=>this.handleAddRow(colI)}>
+                    <div>+</div>
+                    <div className="addRow"> Add a Row</div>   
+                </div>
                  </div>   
             )
         })
         return(
             <div className="container">
                 {elem}
+                
             </div>
         )
     }
